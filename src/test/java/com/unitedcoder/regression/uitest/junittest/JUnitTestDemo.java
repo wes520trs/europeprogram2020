@@ -1,9 +1,28 @@
 package com.unitedcoder.regression.uitest.junittest;
 
-import org.junit.Assert;
-import org.junit.Test;
+import org.junit.*;
+import org.junit.rules.TestName;
+import org.junit.runners.MethodSorters;
+
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 
 public class JUnitTestDemo {
+    @BeforeClass
+    public static void setup(){
+        System.out.println("Before Class runs only once");
+    }
+
+    @Rule
+    public TestName name=new TestName();
+
+
+    @Before
+    public void testBegin(){
+        System.out.println("Before annotation will excute before every test");
+        System.out.println(name.getMethodName()+" started");
+    }
+
+
     @Test
     public void test1(){
         System.out.println("square root test");
@@ -18,8 +37,19 @@ public class JUnitTestDemo {
         Assert.assertFalse(s1.equals(s2));
     }
 
+    @Ignore
     @Test
     public void test3(){
         Assert.assertEquals(10,20);
+    }
+
+    @After
+    public void testEnd(){
+        System.out.println("After annotarion will execute after every test");
+    }
+
+    @AfterClass
+    public static void teardown(){
+        System.out.println("After class will execute once after class");
     }
 }
