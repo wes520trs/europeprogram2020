@@ -26,7 +26,7 @@ public class JUnitTestDemo {
     @Test
     public void test1(){
         System.out.println("square root test");
-        Assert.assertTrue(Math.sqrt(64)==8);
+        Assert.assertTrue(Math.sqrt(64)==9);
     }
 
     @Test
@@ -37,10 +37,9 @@ public class JUnitTestDemo {
         Assert.assertFalse(s1.equals(s2));
     }
 
-    @Ignore
-    @Test
+     @Test
     public void test3(){
-        Assert.assertEquals(10,20);
+        Assert.assertEquals(10,70);
     }
 
     @After
