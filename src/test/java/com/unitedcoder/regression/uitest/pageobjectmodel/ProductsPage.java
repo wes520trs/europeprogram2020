@@ -11,7 +11,7 @@ public class ProductsPage {
     TestUtility utility;
     String configFile="config.properties";
     @FindBy(linkText = "Add Product")
-    WebElement addProductLink;
+    WebElement addProductTab;
     @FindBy(xpath = "//img[@rel=\"#product_status\"]")
     WebElement productStatusCheckBox;
     @FindBy(id="name")
@@ -19,7 +19,7 @@ public class ProductsPage {
     @FindBy(xpath = "//input[@value=\"Save\"]")
     WebElement saveButton;
     @FindBy(xpath = "//div[@class=\"success\"]")
-    WebElement successfullMessage;
+    WebElement successfulMessage;
 
 
     public ProductsPage(WebDriver driver) {
@@ -29,17 +29,16 @@ public class ProductsPage {
     }
 
     public boolean addProduct(){
-        utility.waitForElementPresent(addProductLink);
-        addProductLink.click();
+        utility.waitForElementPresent(addProductTab);
+        addProductTab.click();
         utility.waitForElementPresent(productStatusCheckBox);
         productStatusCheckBox.click();
         utility.waitForElementPresent(productNameField);
         productNameField.sendKeys(ApplicationConfig.readConfigProperties(configFile,"productName"));
         utility.waitForElementPresent(saveButton);
         saveButton.click();
-        utility.waitForElementPresent(successfullMessage);
-        return successfullMessage.isDisplayed();
+        utility.waitForElementPresent(successfulMessage);
+        return successfulMessage.isDisplayed();
     }
-
 
 }

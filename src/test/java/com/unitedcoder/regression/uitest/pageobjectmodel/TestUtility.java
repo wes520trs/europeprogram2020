@@ -9,7 +9,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class TestUtility {
     private int timeout=Integer.parseInt(ApplicationConfig
             .readConfigProperties("config.properties","timeout"));
+
     private WebDriver driver;
+
     public TestUtility(WebDriver driver){
         this.driver=driver;
     }
