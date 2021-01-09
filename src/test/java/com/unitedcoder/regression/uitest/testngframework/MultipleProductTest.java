@@ -18,7 +18,7 @@ public class MultipleProductTest extends TestBase {
         loginPage.login();
     }
     @Test(dataProvider = "productInfo")
-    public void rolebasedSecurityTest(String productName,String productCode){
+    public void addProducts(String productName, String productCode){
         DashboardPage dashboardPage=new DashboardPage(driver);
         dashboardPage.clickOnProductsLink();
         ProductsPage productsPage=new ProductsPage(driver);
