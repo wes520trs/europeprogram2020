@@ -12,6 +12,7 @@ public class TestRunner extends TestBase {
     static DashboardPage dashboardPage;
     ProductsPage productsPage;
     CategoriesPage categoriesPage;
+    CustomerPage customerPage;
 
     @BeforeClass
     public static void setup(){
@@ -35,6 +36,14 @@ public class TestRunner extends TestBase {
         categoriesPage =new CategoriesPage(driver);
         Assert.assertTrue(categoriesPage.deleteCategory());
     }
+
+    @Test
+    public void viewCustomers(){
+        dashboardPage.clickOnCustomersLink();
+        customerPage=new CustomerPage(driver);
+        Assert.assertTrue((customerPage.viewCustomers()));
+    }
+
     @AfterClass
     public static void tearDown(){
         dashboardPage.logout();
