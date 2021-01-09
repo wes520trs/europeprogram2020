@@ -2,9 +2,10 @@ package com.unitedcoder.regression.uitest.testngframework;
 
 import org.testng.Assert;
 import org.testng.annotations.*;
-import static java.lang.Math.*; //static import method, you don't have to write Math, in viewCustomer method
 
-public class TestNGDemo1 {
+import static java.lang.Math.max;
+
+public class TestNGDemo2 {
 
     @BeforeClass
     public void setup(){
@@ -21,20 +22,19 @@ public class TestNGDemo1 {
         System.out.println("After method will run after every test method");
     }
 
-    @Test(priority = 2, description = "Admin user should be able to add product.",
-            groups = {"smoke test","regression test"})
+    @Test(groups = {"smoke test","regression test"})
     public void addProductTest(){
         System.out.println("This for adding new product");
-        Assert.assertTrue("add product".contains("product"));
+        Assert.assertTrue("add product".contains("Product"));
     }
 
-    @Test(priority = 3, enabled = false, groups = "regression test")
-    public void deleteproduct(){
+    @Test(groups = "regression test")
+    public void deleteProduct(){
         System.out.println("This test is for deleting product");
         Assert.assertEquals(10,10);
     }
 
-    @Test(priority = 1, groups = "smoke test")
+    @Test(groups = "smoke test", dependsOnGroups = "regression test")
     public void viewCustomer(){
         System.out.println("This test is for view customers");
         Assert.assertEquals(max(15,25),25);

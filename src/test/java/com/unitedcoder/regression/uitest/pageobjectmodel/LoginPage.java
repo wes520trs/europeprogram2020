@@ -43,4 +43,11 @@ public class LoginPage {
         enterPassword(ApplicationConfig.readConfigProperties(configFile,"password"));
         clickLoginButton();
     }
+
+    public void loginUser(String username, String password){
+        enterUsername(username);
+        enterPassword(password);
+        clickLoginButton();
+    }
+
 }

@@ -16,6 +16,8 @@ public class ProductsPage {
     WebElement productStatusCheckBox;
     @FindBy(id="name")
     WebElement productNameField;
+    @FindBy(id="product_code")
+    WebElement productCodeField;
     @FindBy(xpath = "//input[@value=\"Save\"]")
     WebElement saveButton;
     @FindBy(xpath = "//div[@class=\"success\"]")
@@ -40,5 +42,26 @@ public class ProductsPage {
         utility.waitForElementPresent(successfulMessage);
         return successfulMessage.isDisplayed();
     }
+
+    public void addProducts(String productName,String productCode){
+        utility.waitForElementPresent(addProductTab);
+        addProductTab.click();
+        utility.waitForElementPresent(productStatusCheckBox);
+        productStatusCheckBox.click();
+        utility.waitForElementPresent(productNameField);
+        productNameField.sendKeys(productName);
+        utility.waitForElementPresent(productCodeField);
+        productCodeField.sendKeys(productCode);
+        utility.waitForElementPresent(saveButton);
+        saveButton.click();
+    }
+
+    public boolean verifyNewProductAdded(){
+        utility.waitForElementPresent(successfulMessage);
+        return successfulMessage.isDisplayed();
+    }
+
+
+
 
 }
