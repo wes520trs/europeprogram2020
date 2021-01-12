@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="CubeCart Test Automation">
+    <test verbose="1" name="Regression Test">
+        <classes>
+            <class name="com.unitedcoder.regression.uitest.testngframework.TestNGDemo1"></class>
+            <class name="com.unitedcoder.regression.uitest.testngframework.TestNGDemo3"></class>
+        </classes>
+    </test>
+</suite>

@@ -18,7 +18,7 @@ public class JUnitTestDemo {
 
     @Before
     public void testBegin(){
-        System.out.println("Before annotation will excute before every test");
+        System.out.println("Before annotation will execute before every test");
         System.out.println(name.getMethodName()+" started");
     }
 
@@ -26,7 +26,7 @@ public class JUnitTestDemo {
     @Test
     public void test1(){
         System.out.println("square root test");
-        Assert.assertTrue(Math.sqrt(64)==9);
+        Assert.assertTrue(Math.sqrt(64)==8);
     }
 
     @Test
@@ -39,12 +39,12 @@ public class JUnitTestDemo {
 
      @Test
     public void test3(){
-        Assert.assertEquals(10,70);
+        Assert.assertEquals(10,10);
     }
 
     @After
     public void testEnd(){
-        System.out.println("After annotarion will execute after every test");
+        System.out.println("After annotation will execute after every test");
     }
 
     @AfterClass

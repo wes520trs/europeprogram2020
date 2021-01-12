@@ -6,6 +6,16 @@ import static java.lang.Math.*; //static import method, you don't have to write 
 
 public class TestNGDemo1 {
 
+    @BeforeSuite
+    public void beforeSuitTest(){
+        System.out.println("Before suit will run first");
+    }
+
+    @BeforeTest
+    public void beforeTest(){
+        System.out.println("Before test will run after Suite");
+    }
+
     @BeforeClass
     public void setup(){
         System.out.println("before Class will run once");
@@ -45,5 +55,13 @@ public class TestNGDemo1 {
         System.out.println("After class will run once");
     }
 
+    @AfterTest
+    public void afterTest(){
+        System.out.println("After test will run after class");
+    }
 
+    @AfterSuite
+    public void afterSiutTest(){
+        System.out.println("After suit will run after all tests");
+    }
 }

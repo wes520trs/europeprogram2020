@@ -4,7 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class TestNGDemo3 {
-    @Test(invocationCount = 3)
+    @Test(invocationCount = 1)
     public void test1(){
         System.out.println("Test1...");
         Assert.assertEquals(10,10);
