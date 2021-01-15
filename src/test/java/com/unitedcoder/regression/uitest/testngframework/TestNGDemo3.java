@@ -10,7 +10,7 @@ public class TestNGDemo3 {
         Assert.assertEquals(10,10);
     }
 
-    @Test
+    @Test(groups = "smoke test")
     public void test2(){
         System.out.println("Test2...");
         Assert.assertEquals(20,20);

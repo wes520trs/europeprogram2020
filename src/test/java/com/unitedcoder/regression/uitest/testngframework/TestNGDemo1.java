@@ -39,7 +39,7 @@ public class TestNGDemo1 {
     }
 
     @Test(priority = 3, enabled = false, groups = "regression test")
-    public void deleteproduct(){
+    public void deleteProduct(){
         System.out.println("This test is for deleting product");
         Assert.assertEquals(10,10);
     }
