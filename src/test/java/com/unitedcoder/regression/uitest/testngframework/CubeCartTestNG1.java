@@ -56,7 +56,7 @@ public class CubeCartTestNG1 {
     }
     @AfterMethod
     public void teardown(){
-        utility.slepp(3);
+        utility.sleep(3);
         WebElement logOutBUtton=driver.findElement(By.cssSelector("i.fa.fa-sign-out"));
         utility.waitForElementPresent(logOutBUtton);
         logOutBUtton.click();
