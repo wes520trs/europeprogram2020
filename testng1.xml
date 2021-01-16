@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name = "Parallel Testing Suite"  parallel = "tests" thread-count="2">
+    <test name = "regression Tests">
+        <classes>
+            <class name="com.unitedcoder.regression.uitest.testngframework.CubeCartJTestNGFrameWork"/>
+        </classes>
+    </test>
+    <test name = "Smoke Tests">
+        <classes>
+            <class name="com.unitedcoder.regression.uitest.testngframework.CubeCartTestNG1"/>
+        </classes>
+    </test>
+
+</suite>

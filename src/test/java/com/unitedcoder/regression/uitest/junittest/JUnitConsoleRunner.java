@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class JUnitConsoleRunner {
-    // run junit test useing junit core package
+    // run junit test using junit core package
     public static void main(String[] args) {
         StringBuilder testLog=new StringBuilder();
         testLog.append("<html><head><title>CubeCart test report</title>Cube Cart Test Report</head><body>");
