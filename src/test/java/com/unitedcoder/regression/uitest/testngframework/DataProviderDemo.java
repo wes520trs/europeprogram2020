@@ -33,7 +33,7 @@ public class DataProviderDemo extends TestBase {
     public Object[][] loginInfo(){           //it can be more dimention than two
         Object[][] testDate=new  Object[][]{
                 {"testautomation","automation123!"},
-                {"testautomation1","automation123!"},
+//                {"testautomation1","automation123!"},
                 {"testautomation2","automation123!"}
         };
         return testDate;

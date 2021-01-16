@@ -1,8 +1,10 @@
 package com.unitedcoder.regression.uitest.testngframework;
 
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Listeners(TestResultListener.class)
 public class TestNGDemo3 {
     @Test(invocationCount = 1)
     public void test1(){

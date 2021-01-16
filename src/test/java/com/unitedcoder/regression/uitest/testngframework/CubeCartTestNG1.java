@@ -9,25 +9,30 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
+import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.util.List;
 
+@Listeners(TestResultListener.class)
 public class CubeCartTestNG1 {
     String configFile="config.properties";
     WebDriver driver;
     String url= ApplicationConfig.readConfigProperties(configFile,"qaurl");
     UiUtility utility;
     @BeforeMethod
-    public  void setup(){
+    public  void setup(ITestContext context){
         System.setProperty("webdriver.chrome.driver", "c:\\webdriver\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.get(url);
+        context.setAttribute("myDriver",driver);
+        System.out.println("context of TestNG Class driver is: "+context.getAttribute("myDriver").toString());
         utility=new UiUtility(driver);
         WebElement userNameField=driver.findElement(By.id("username"));
         String userName=ApplicationConfig.readConfigProperties(configFile,"username");
@@ -50,7 +55,7 @@ public class CubeCartTestNG1 {
         customerLink.click();
         WebElement customerTable=driver.findElement(By.xpath("//div[@id='customer-list']/table"));
         utility.waitForElementPresent(customerTable);
-        List<WebElement> customers=driver.findElements(By.xpath("//div[@id='customer-list']/table/tbody/tr"));
+        List<WebElement> customers=driver.findElements(By.xpath("//div[@id='customer-list']/tables/tbody/tr"));
         System.out.println(customers.size());
         Assert.assertTrue(customers.size()>=1);
     }
@@ -62,6 +67,5 @@ public class CubeCartTestNG1 {
         logOutBUtton.click();
         driver.close();
         driver.quit();
-
     }
 }

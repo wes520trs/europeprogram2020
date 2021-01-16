@@ -17,7 +17,7 @@ public class TestNGDemo1 {
     }
 
     @BeforeClass
-    public void setup(){
+    public void beforeClassTest(){
         System.out.println("before Class will run once");
     }
 

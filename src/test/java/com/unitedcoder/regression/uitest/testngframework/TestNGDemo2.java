@@ -5,6 +5,8 @@ import org.testng.annotations.*;
 
 import static java.lang.Math.max;
 
+@Listeners(TestResultListener.class)
+
 public class TestNGDemo2 {
 
     @BeforeClass
@@ -25,13 +27,13 @@ public class TestNGDemo2 {
     @Test(groups = {"smoke test","regression test"})
     public void addProductTest(){
         System.out.println("This for adding new product");
-        Assert.assertTrue("add product".contains("Product"));
+        Assert.assertTrue("add product".contains("product"));
     }
 
     @Test(groups = "regression test")
     public void deleteProduct(){
         System.out.println("This test is for deleting product");
-        Assert.assertEquals(10,10);
+        Assert.assertEquals(10,20);
     }
 
     @Test(groups = "smoke test", dependsOnGroups = "regression test")
@@ -43,6 +45,7 @@ public class TestNGDemo2 {
     @AfterClass
     public void tearDown(){
         System.out.println("After class will run once");
+        System.out.println("");
     }
 
 
