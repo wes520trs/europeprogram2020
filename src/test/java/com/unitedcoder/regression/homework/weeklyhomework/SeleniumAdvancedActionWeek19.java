@@ -99,9 +99,14 @@ public class SeleniumAdvancedActionWeek19 {
 
         WebElement slider= driver.findElement(By.xpath("//span[contains(@class,\"slider\")]"));
         waitForElementPresent(slider);
+        int before=slider.getLocation().getX();
+        System.out.println("Slider original location: "+before);
         actions=new Actions(driver);
 //        actions.clickAndHold(slider).moveToElement(slider,50,0).release().build().perform();
-        actions.dragAndDropBy(slider,150,0).build().perform();
+        actions.dragAndDropBy(slider,150,0).dragAndDropBy(slider,200,0).build().perform();
+        int after=slider.getLocation().getX();
+        System.out.println("Slider original location: "+after);
+        Assert.assertNotSame(before,after);
         sleep(2);
     }
 
