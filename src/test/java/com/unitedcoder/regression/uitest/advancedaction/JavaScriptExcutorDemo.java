@@ -25,7 +25,7 @@ public class JavaScriptExcutorDemo {
         options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
-//        driver.get("https://www.twoplugs.com/");
+        driver.get("https://www.twoplugs.com/");
     }
 
     @Test
