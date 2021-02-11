@@ -13,3 +13,5 @@
 [0116/134715.603:ERROR:directory_reader_win.cc(43)] FindFirstFile: Sistem belirtilen yolu bulam?yor. (0x3)
 [0116/135514.112:ERROR:directory_reader_win.cc(43)] FindFirstFile: Sistem belirtilen yolu bulam?yor. (0x3)
 [0116/140501.721:ERROR:directory_reader_win.cc(43)] FindFirstFile: Sistem belirtilen yolu bulam?yor. (0x3)
+[0122/125811.225:ERROR:directory_reader_win.cc(43)] FindFirstFile: Sistem belirtilen yolu bulam?yor. (0x3)
+[0122/135637.231:ERROR:directory_reader_win.cc(43)] FindFirstFile: Sistem belirtilen yolu bulam?yor. (0x3)
