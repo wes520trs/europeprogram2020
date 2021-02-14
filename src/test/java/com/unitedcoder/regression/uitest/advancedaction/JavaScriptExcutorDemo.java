@@ -45,6 +45,7 @@ public class JavaScriptExcutorDemo {
         }
         ScreenShotUtility shotUtility=new ScreenShotUtility();
         shotUtility.takeScreenShot("elementBorder.png",driver);
+
     }
 
     @Test

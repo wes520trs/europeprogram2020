@@ -13,7 +13,6 @@ import java.io.IOException;
 public class JavaScriptMethods {
 
     public static void highLightElement(WebElement element,WebDriver driver){
-        JavascriptExecutor js=(JavascriptExecutor)driver;
         String backGroundColor=element.getCssValue("backgroundColor");
         for(int i=0;i<3;i++){
             changeElementColor("#D42D1B",element,driver);
