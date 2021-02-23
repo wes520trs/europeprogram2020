@@ -17,11 +17,6 @@ public class ConnectionManager {
         switch (connectionType) {
             case MSSQLSERVER:
 //                Class.forName(JTDS_Driver); // load the SQL driver into memory
-                try {
-                    Class.forName(JTDS_Driver);
-                } catch (ClassNotFoundException e) {
-                    new RuntimeException("please check driver information.");
-                }
                 String connectionURL="jdbc:jtds:sqlserver://" + dbURL + ":"
                         + "databaseName=" + defaultDataBase;
 //                connection= DriverManager.getConnection(connectionURL,dbUserName,dbPassword);

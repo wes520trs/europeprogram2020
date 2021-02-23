@@ -22,12 +22,20 @@ public class DataBaseTestRunner {
                 dbURL,dbPort,userName,password,defaultSchema,ConnectionType.MYSQLSERVER);
     }
 
-    @Test(description = "CubCart inventory table")
+    @Test(description = "CubCart inventory table should have expected products")
     public void verifyProducts() throws SQLException {
         DataAccess access=new DataAccess();
         boolean isProductFound=access.getProductName("Toyota",connection);
         Assert.assertTrue(isProductFound);
     }
+
+    @Test(description = "CubCart customer table should have expected customer")
+    public void verifyCustomers() throws SQLException {
+        DataAccess access=new DataAccess();
+        boolean isCustomerFound=access.getCustomer("123@gmail.com",connection);
+        Assert.assertTrue(isCustomerFound);
+    }
+
 
     @AfterClass
     public void tearDown(){
