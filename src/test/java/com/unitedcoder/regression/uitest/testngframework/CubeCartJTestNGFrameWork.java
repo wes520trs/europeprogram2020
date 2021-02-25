@@ -40,8 +40,8 @@ public class CubeCartJTestNGFrameWork {
         WebElement loginButton=driver.findElement(By.id("login"));
         utility.waitForElementPresent(loginButton);
         loginButton.click();
-
     }
+
     //Use case 1:admin user should be able to view customers
     @Test(enabled = false)
     public void viewCustomersTest(){

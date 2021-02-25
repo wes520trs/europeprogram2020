@@ -24,7 +24,8 @@ public class DataBaseInsertTest {
                 standAloneURL,dbPort,userName,password,defaultSchema,ConnectionType.MYSQLSERVER);
     }
 
-    @Test(description = "Admin user should able to insert record into cubecart category table")
+    @Test(description = "Admin user should able to insert record into cubecart category table",
+    groups = "insert record")
     public void verifyCategoryInsertTest() throws SQLException {
        CategoryObject categoryObject=new CategoryObject("Tursun_MySQL","My_SQL_demo1",
                1,0,1, 1, 0,
@@ -32,6 +33,14 @@ public class DataBaseInsertTest {
        DataAccess access=new DataAccess();
        boolean isRecordInserted=access.insertNewCategory(categoryObject,connection);
        Assert.assertTrue(isRecordInserted);
+    }
+
+    @Test(description = "Admin user should be able to delete category from category table",
+    dependsOnGroups = "insert record")
+    public void verifyDeleteCategory(){
+        DataAccess access=new DataAccess();
+        boolean  isDeleted=access.deleteCategory("Tursun_MySQL",connection);
+        Assert.assertTrue(isDeleted);
     }
 
 

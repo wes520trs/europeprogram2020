@@ -98,5 +98,30 @@ public class DataAccess {
             return false;
         }
     }
+    public boolean deleteCategory(String categoryName, Connection connection){
+        String deleteQuery="delete from cc_CubeCart_category where cat_name=?";
+        PreparedStatement deleteStatement=null;
+        try {
+            deleteStatement=connection.prepareStatement(deleteQuery);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        try {
+            deleteStatement.setString(1,categoryName);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        int affectedRows=0;
+        try {
+            affectedRows=deleteStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println(String.format("%d rows affected.",affectedRows));
+        if (affectedRows>0){
+            return true;
+        }else
+            return false;
+    }
 
 }
