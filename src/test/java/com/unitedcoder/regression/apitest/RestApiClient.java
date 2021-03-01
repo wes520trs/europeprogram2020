@@ -11,6 +11,7 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -82,7 +83,7 @@ public class RestApiClient {
         CloseableHttpResponse response = null;
         try {
             CloseableHttpClient httpClient = HttpClients.createDefault();
-            HttpPost httpPost = new HttpPost();
+            HttpPost httpPost = new HttpPost(url);
             //Json payload
             httpPost.setEntity(new StringEntity(entityString));
             //headers
@@ -95,6 +96,8 @@ public class RestApiClient {
         }
         return response;
     }
+
+
 }
 
 

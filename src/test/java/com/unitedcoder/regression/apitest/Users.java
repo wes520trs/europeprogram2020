@@ -12,6 +12,9 @@ public class Users {
         this.job = job;
     }
 
+    public Users() {
+    }
+
     public String getName() {
         return name;
     }
