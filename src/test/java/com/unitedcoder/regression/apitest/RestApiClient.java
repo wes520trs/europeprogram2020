@@ -11,7 +11,6 @@ import org.apache.http.util.EntityUtils;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,7 +28,6 @@ public class RestApiClient {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         int statusCode = httpResponse.getStatusLine().getStatusCode();
         System.out.println("Status code is: " + statusCode);
 //        String responseString= EntityUtils.toString(httpResponse.getEntity());
