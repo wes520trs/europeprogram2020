@@ -25,6 +25,7 @@ public class CubeCartJTestNGFrameWork {
         System.setProperty("webdriver.chrome.driver", "c:\\webdriver\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+        options.addArguments("--headless"); //without opening browser, with headless mode of chrome
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.get(url);
@@ -43,7 +44,7 @@ public class CubeCartJTestNGFrameWork {
     }
 
     //Use case 1:admin user should be able to view customers
-    @Test(enabled = false)
+    @Test
     public void viewCustomersTest(){
         WebElement customerLink=driver.findElement(By.linkText("Customer List"));
         utility.waitForElementPresent(customerLink);
