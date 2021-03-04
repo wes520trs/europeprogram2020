@@ -4,11 +4,13 @@ public class TestDataHolder {
     private String firstName;
     private String lastName;
     private String email;
+    private String catName;
 
-    public TestDataHolder(int customerID, String firstName, String lastName, String email) {
+    public TestDataHolder(String firstName, String lastName, String email, String catName) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.catName = catName;
     }
 
     public TestDataHolder() {
@@ -36,5 +38,13 @@ public class TestDataHolder {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getCatName() {
+        return catName;
+    }
+
+    public void setCatName(String catName) {
+        this.catName = catName;
     }
 }

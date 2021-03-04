@@ -57,7 +57,9 @@ public class UIAction {
         utility.waitForElementPresent(firstNameField);
         String firstName="Tursun" + System.currentTimeMillis();
         firstNameField.sendKeys(firstName);
+        dataHolder=new TestDataHolder();
         dataHolder.setFirstName(firstName);
+        System.out.println("First name from dataHolder: "+dataHolder.getFirstName());
         WebElement lastNameField = driver.findElement(By.xpath("//input[@name='customer[last_name]']"));
         utility.waitForElementPresent(lastNameField);
         lastNameField.sendKeys("Sabir");
