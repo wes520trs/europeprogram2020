@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="CubeCart Test Automation" verbose="1">
+    <listeners>
+        <listener class-name="org.testng.reporters.EmailableReporter"></listener>
+        <listener class-name="org.testng.reporters.SuiteHTMLReporter"></listener>
+    </listeners>
+
+    <test verbose="1" name="regression test">
+        <groups>
+            <run >
+                <exclude name="add category" />
+            </run>
+        </groups>
+        <classes>
+            <class name="com.unitedcoder.regression.homework.sprint5.DataBaseUIVerification">
+<!--                <methods>-->
+<!--                    <include name="VerifyCustomerInfo" invocation-numbers="3"/>-->
+<!--                    <include name="addCustomersOnUI"/>-->
+<!--                </methods>-->
+            </class>
+        </classes>
+    </test>
+</suite>

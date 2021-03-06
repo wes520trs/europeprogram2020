@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -42,10 +44,10 @@ public class DataBaseUIVerification {
             exp.printStackTrace();
         }
         //login to the CubeCart
-        System.setProperty("webdriver.chrome.driver", "c:\\webdriver\\chromedriver.exe");
-        ChromeOptions options = new ChromeOptions();
+        System.setProperty("webdriver.gecko.driver", "c:\\webdriver\\geckodriver.exe");
+        FirefoxOptions options = new FirefoxOptions();
         options.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        driver = new ChromeDriver(options);
+        driver = new FirefoxDriver(options);
         driver.manage().window().maximize();
         driver.get(url);
         utility = new UiUtility(driver);
@@ -62,7 +64,8 @@ public class DataBaseUIVerification {
         loginButton.click();
     }
 
-    @Test(invocationCount = 1)
+    @Test(description = "adding customer by using CubeCart UI",
+    groups = {"add customer"}, priority = 1)
     public void addCustomersOnUI() {
         WebElement customerList = driver.findElement(By.xpath("//a[text()='Customer List']"));
         utility.waitForElementPresent(customerList);
@@ -74,7 +77,6 @@ public class DataBaseUIVerification {
         utility.waitForElementPresent(firstNameField);
         String firstName = "Tursun" + System.currentTimeMillis();
         firstNameField.sendKeys(firstName);
-        dataHolder = new TestDataHolder();
         dataHolder.setFirstName(firstName);
         System.out.println("First name from dataHolder: " + dataHolder.getFirstName());
         WebElement lastNameField = driver.findElement(By.xpath("//input[@name='customer[last_name]']"));
@@ -90,7 +92,8 @@ public class DataBaseUIVerification {
         Assert.assertTrue(successfulMassage.isDisplayed());
     }
 
-    @Test
+    @Test(description = "Verify customer with data base",
+            groups = "add customer", priority = 2)
     public void VerifyCustomerInfo() throws SQLException {
         Statement statement = null; //equal to query
         ResultSet resultSet = null; //use data only during the connection with data base
@@ -130,7 +133,8 @@ public class DataBaseUIVerification {
         System.out.println("Total rows: " + count);
     }
 
-    @Test(invocationCount = 1)
+    @Test(description = "adding category by using CubeCart UI",
+    groups = "add category")
     public void addProductCategory() {
         WebElement categoryLink = driver.findElement(By.id("nav_categories"));
         utility.waitForElementPresent(categoryLink);
@@ -150,7 +154,7 @@ public class DataBaseUIVerification {
         Assert.assertTrue(successfulMessage.isDisplayed());
     }
 
-    @Test
+    @Test(description = "verify category with data base", groups = "add category")
     public void VerifyCategoryInfo() throws SQLException {
         Statement statement = null; //equal to query
         ResultSet resultSet = null; //use data only during the connection with data base
@@ -197,7 +201,7 @@ public class DataBaseUIVerification {
         logout.click();
         utility.sleep(2);
         driver.close();
-        driver.quit();
+//        driver.quit();
         //disconnect data base
         try {
             if (myConn.isClosed()) {
