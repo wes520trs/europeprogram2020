@@ -11,9 +11,9 @@
             <class name="com.unitedcoder.regression.uitest.testngframework.TestNGDemo3" />
         </classes>
     </test>
-    <test name="CubeCart UI Test">
-        <classes>
-            <class name="com.unitedcoder.regression.uitest.pageobjectmodel.JUnitTestRunner"></class>
-        </classes>
-    </test>
+<!--    <test name="CubeCart UI Test">-->
+<!--        <classes>-->
+<!--            <class name="com.unitedcoder.regression.uitest.pageobjectmodel.JUnitTestRunner"></class>-->
+<!--        </classes>-->
+<!--    </test>-->
 </suite>
