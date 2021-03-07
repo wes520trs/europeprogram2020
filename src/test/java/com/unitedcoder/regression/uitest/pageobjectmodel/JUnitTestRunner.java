@@ -3,10 +3,7 @@ package com.unitedcoder.regression.uitest.pageobjectmodel;
 import com.unitedcoder.configutility.ApplicationConfig;
 import com.unitedcoder.cubecartautomation.TestBase;
 import com.unitedcoder.regression.browserutils.JenkinsBrowserMode;
-import org.junit.AfterClass;
-import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -45,6 +42,7 @@ public class JUnitTestRunner extends TestBase {
 
     }
 
+    @Ignore
     @Test
     public void addProduct() {
         dashboardPage.clickOnProductsLink();
@@ -52,6 +50,7 @@ public class JUnitTestRunner extends TestBase {
         Assert.assertTrue(productsPage.addProduct());
     }
 
+    @Ignore
     @Test
     public void deleteCategories() {
         dashboardPage.clickOnCategoryLink();
