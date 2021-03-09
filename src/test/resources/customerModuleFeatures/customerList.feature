@@ -1,9 +1,10 @@
+@CustomerModuleIntegration
 Feature: Admin user should be able to add, delete, edit customer information
 
-  Background:
-    Given User on login page
-    When User enter username and password click on login button
-    Then User successfully login to the system
+#  Background:
+#    Given User on login page
+#    When User enter username and password click on login button
+#    Then User successfully login to the system
 
   @addCustomerTest
   Scenario: User should be able to add customer

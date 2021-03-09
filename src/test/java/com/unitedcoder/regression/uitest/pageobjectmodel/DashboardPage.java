@@ -42,4 +42,10 @@ public class DashboardPage {
         utility.waitForElementPresent(logoutButton);
         logoutButton.click();
     }
+
+    public boolean verifyDashBoardPage(){
+        if(productsLink.isDisplayed())
+            return true;
+        else return false;
+    }
 }
