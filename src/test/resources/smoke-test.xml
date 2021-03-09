@@ -15,7 +15,7 @@
     </test>
     <test name="CubeCart UI Test">
         <classes>
-            <class name="com.unitedcoder.regression.uitest.pageobjectmodel.JUnitTestRunner"></class>
+            <class name="com.unitedcoder.regression.uitest.testngframework.JUnitConvertToTestNGRunner"></class>
         </classes>
     </test>
 </suite>
