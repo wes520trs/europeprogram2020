@@ -33,13 +33,9 @@ public class JUnitConvertToTestNGRunner extends TestBase {
                 "headless").equals("1")) {
             browserMode.setHeadlessModeOnWindows(chromeOptions);
         }
+        driver = new ChromeDriver(chromeOptions);
         if (!useHeadless) {
             System.setProperty("webdriver.chrome.driver", "c:\\webdriver\\chromedriver.exe");
-        }
-        //define a webdriver
-        driver = new ChromeDriver(chromeOptions);
-        //maximize browser window
-        if (!useHeadless) {
             driver.manage().window().maximize();
         }
         driver.get(url);
