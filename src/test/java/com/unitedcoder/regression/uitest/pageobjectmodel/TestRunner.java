@@ -1,6 +1,5 @@
 package com.unitedcoder.regression.uitest.pageobjectmodel;
 
-import com.unitedcoder.configutility.ApplicationConfig;
 import com.unitedcoder.cubecartautomation.TestBase;
 import org.junit.AfterClass;
 import org.junit.Assert;
@@ -18,7 +17,7 @@ public class TestRunner extends TestBase {
 
     @BeforeClass
     public static void setup(){
-        initialzation();
+        initialization();
         loginPage=new LoginPage(driver);
         utility=new TestUtility(driver);
         dashboardPage=new DashboardPage(driver);

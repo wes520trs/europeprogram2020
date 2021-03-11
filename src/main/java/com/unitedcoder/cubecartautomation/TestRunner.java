@@ -4,7 +4,7 @@ import com.unitedcoder.classconcepts.LoginUser;
 
 public class TestRunner extends TestBase {
     public static void main(String[] args) {
-        initialzation();
+        initialization();
         LoginPage loginPage=new LoginPage();
         LoginUser user=new LoginUser("testautomation","automation123!");
         loginPage.login(user);

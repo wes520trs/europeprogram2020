@@ -12,7 +12,7 @@ public class DataProviderDemo extends TestBase {
 
     @BeforeClass
     public void setup(){
-        initialzation();
+        initialization();
     }
 
     @Test(dataProvider = "loginInfo")

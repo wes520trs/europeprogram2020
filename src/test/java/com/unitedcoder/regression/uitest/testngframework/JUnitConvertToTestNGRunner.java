@@ -5,6 +5,7 @@ import com.unitedcoder.cubecartautomation.TestBase;
 import com.unitedcoder.regression.browserutils.JenkinsBrowserMode;
 import com.unitedcoder.regression.uitest.pageobjectmodel.*;
 import org.openqa.selenium.PageLoadStrategy;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
@@ -16,6 +17,7 @@ public class JUnitConvertToTestNGRunner extends TestBase {
     static TestUtility utility;
     static LoginPage loginPage;
     static DashboardPage dashboardPage;
+    private static WebDriver driver;
     ProductsPage productsPage;
     CategoriesPage categoriesPage;
     CustomerPage customerPage;
@@ -28,16 +30,15 @@ public class JUnitConvertToTestNGRunner extends TestBase {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         JenkinsBrowserMode browserMode = new JenkinsBrowserMode();
-        boolean useHeadless = browserMode.setHeadlessModeIfLinux(chromeOptions);
         if (ApplicationConfig.readConfigProperties("config.properties",
                 "headless").equals("1")) {
             browserMode.setHeadlessModeOnWindows(chromeOptions);
         }
-        driver = new ChromeDriver(chromeOptions);
-        if (!useHeadless) {
+        else{
             System.setProperty("webdriver.chrome.driver", "c:\\webdriver\\chromedriver.exe");
-            driver.manage().window().maximize();
         }
+        driver=new ChromeDriver(chromeOptions);
+        driver.manage().window().maximize();
         driver.get(url);
         loginPage = new LoginPage(driver);
         utility = new TestUtility(driver);

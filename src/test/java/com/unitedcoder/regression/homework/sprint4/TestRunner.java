@@ -14,7 +14,7 @@ public class TestRunner extends TestBase {
 
     @BeforeClass
     public static void setup(){
-        initialzation();
+        initialization();
         loginPage=new LoginPage(driver);
         loginPage.login();
     }

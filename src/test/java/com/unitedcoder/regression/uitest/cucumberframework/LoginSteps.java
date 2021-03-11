@@ -10,20 +10,19 @@ import org.junit.Assert;
 
 public class LoginSteps extends TestBase {
 
-    DashboardPage dashboardPage;
     LoginPage loginPage;
+    DashboardPage dashboardPage;
 
-    @Given("User on login page")
+    @Given("user on login page")
     public void userOnLoginPage() {
+        initialization();
         loginPage=new LoginPage(driver);
     }
-
-    @When("User enter username and password click on login button")
+    @When("user enter username and password click on login button")
     public void userEnterUsernameAndPasswordClickOnLoginButton() {
         loginPage.login();
     }
-
-    @Then("User successfully login to the system")
+    @Then("user successfully login to the system")
     public void userSuccessfullyLoginToTheSystem() {
         dashboardPage=new DashboardPage(driver);
         Assert.assertTrue(dashboardPage.verifyLogin());

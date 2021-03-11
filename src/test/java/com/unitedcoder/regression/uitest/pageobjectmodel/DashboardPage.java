@@ -9,7 +9,7 @@ public class DashboardPage {
     WebDriver driver;
     TestUtility utility;
     @FindBy(linkText = "Customer List")
-    WebElement customerListLink;
+    WebElement customerLisLink;
     @FindBy(linkText = "Products")
     WebElement productsLink;
     @FindBy(linkText = "Categories")
@@ -27,8 +27,8 @@ public class DashboardPage {
         return logoutButton.isDisplayed();
     }
     public void clickOnCustomersLink(){
-        utility.waitForElementPresent(customerListLink);
-        customerListLink.click();
+        utility.waitForElementPresent(customerLisLink);
+        customerLisLink.click();
     }
     public void clickOnProductsLink(){
         utility.waitForElementPresent(productsLink);
@@ -42,7 +42,6 @@ public class DashboardPage {
         utility.waitForElementPresent(logoutButton);
         logoutButton.click();
     }
-
     public boolean verifyDashBoardPage(){
         if(productsLink.isDisplayed())
             return true;

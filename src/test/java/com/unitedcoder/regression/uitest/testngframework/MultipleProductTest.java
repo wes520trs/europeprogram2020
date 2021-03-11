@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 public class MultipleProductTest extends TestBase {
     @BeforeClass
     public void setup(){
-        initialzation();
+        initialization();
         LoginPage loginPage=new LoginPage(driver);
         loginPage.login();
     }

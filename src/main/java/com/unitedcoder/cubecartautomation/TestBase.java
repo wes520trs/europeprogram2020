@@ -17,8 +17,8 @@ public class TestBase {
     public static WebDriver driver;
     public static String browserName = "chrome";
 
-    public static void initialzation() {
-        //singlton design pattern
+    public static void initialization() {
+        //singleton design pattern
         if (driver == null) {
             if (browserName.equalsIgnoreCase("chrome")) {
                 //switch (browserName){
@@ -34,6 +34,7 @@ public class TestBase {
                 driver = new FirefoxDriver();
                 driver.manage().window().maximize();
                 //break;
+                driver.get(ApplicationConfig.readConfigProperties("config.properties","qaurl"));
             }
         }
 
