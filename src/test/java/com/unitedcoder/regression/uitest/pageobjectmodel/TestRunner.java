@@ -45,6 +45,14 @@ public class TestRunner extends TestBase {
         Assert.assertTrue((customerPage.viewCustomers()));
     }
 
+    @Test
+    public void deleteProducts(){
+        dashboardPage.clickOnProductsLink();
+        productsPage=new ProductsPage(driver);
+        productsPage.deleteProduct();
+        Assert.assertTrue(productsPage.verifyProductDeleted());
+    }
+
     @AfterClass
     public static void tearDown(){
         dashboardPage.logout();
