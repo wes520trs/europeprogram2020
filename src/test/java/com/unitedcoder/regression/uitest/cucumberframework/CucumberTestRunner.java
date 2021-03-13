@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
 )
 
 
-public class TestRunner extends TestBase {
+public class CucumberTestRunner extends TestBase {
 //        @BeforeClass
 //    public static void setUp(){
 //        initialization();
