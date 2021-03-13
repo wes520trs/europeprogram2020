@@ -7,16 +7,16 @@ import io.cucumber.java.Before;
 
 public class Hook extends TestBase {
 // when run the api test, commit below lines
-    @Before
-    public void setup(){
-        initialization();
-    }
-
-    @After
-    public void tearDown(){
-        DashboardPage dashboardPage = new DashboardPage(driver);
-        dashboardPage.logout();
-        driver.close();
-        driver=null;
-    }
+//    @Before
+//    public void setup(){
+//        initialization();
+//    }
+//
+//    @After
+//    public void tearDown(){
+//        DashboardPage dashboardPage = new DashboardPage(driver);
+//        dashboardPage.logout();
+//        driver.close();
+//        driver=null;
+//    }
 }

@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions( //customise cucumber test
         plugin = {"pretty", "html:target/cubecart-cucumber"},
         features = {"src/test/resources"},
-        tags = "@ProductModule",
+        tags = "@weatherApiTest",
         monochrome = true
 )
 
