@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
         plugin = {"pretty", "html:target/cubecart-cucumber",
         "json:target/cucumber.json"},
         features = {"src/test/resources"},
-        tags = "@weatherApiTest",
+        tags = "@weatherApiTest,@DataBaseTest,@ProductModule",
         monochrome = true
 )
 
