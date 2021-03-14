@@ -22,8 +22,8 @@ public class ProductsPage {
     WebElement saveButton;
     @FindBy(xpath = "//div[@class=\"success\"]")
     WebElement successfulMessage;
-//    @FindBy(xpath = "//*[td//text()[contains(.,'trs')]]//i[@class='fa fa-trash']")
-    @FindBy(css = ".fa.fa-trash")
+    @FindBy(xpath = "//*[td//text()[contains(.,'trs')]]//i[@class='fa fa-trash']")
+//    @FindBy(css = ".fa.fa-trash")
     WebElement deleteIcon;
 
 

@@ -1,8 +1,12 @@
 package com.unitedcoder.regression.uitest.cucumberframework;
 
 import com.unitedcoder.cubecartautomation.TestBase;
+import com.unitedcoder.regression.uitest.pageobjectmodel.DashboardPage;
+import com.unitedcoder.regression.uitest.pageobjectmodel.LoginPage;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
@@ -10,7 +14,7 @@ import org.junit.runner.RunWith;
         plugin = {"pretty", "html:target/cubecart-cucumber",
         "json:target/cucumber.json"},
         features = {"src/test/resources"},
-        tags = "@weatherApiTest,@DataBaseTest,@ProductModule",
+        tags = "@ProductModule,@weatherApiTest,@DataBaseTest",
         monochrome = true
 )
 
