@@ -15,6 +15,7 @@ public class LoginSteps extends TestBase {
 
     @Given("user on login page")
     public void userOnLoginPage() {
+        initialization();
         loginPage=new LoginPage(driver);
     }
     @When("user enter username and password click on login button")

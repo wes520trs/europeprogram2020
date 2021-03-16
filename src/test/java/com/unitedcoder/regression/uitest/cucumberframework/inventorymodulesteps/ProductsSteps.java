@@ -32,6 +32,8 @@ public class ProductsSteps extends TestBase {
     @Then("New product should be added")
     public void newProductShouldBeAdded() {
         productsPage.verifyNewProductAdded();
+        driver.close();
+        driver=null;
     }
 
     @And("User click on delete icon")
@@ -42,5 +44,7 @@ public class ProductsSteps extends TestBase {
     @Then("Product should be deleted successfully")
     public void productShouldBeDeletedSuccessfully() {
         productsPage.verifyProductDeleted();
+        driver.close();
+        driver.quit();
     }
 }
