@@ -6,10 +6,10 @@ import java.util.Arrays;
 
 public class JenkinsBrowserMode {
 
-    public boolean setHeadlessModeIfLinux(ChromeOptions chromeOptions) {
+    public boolean setHeadlessModeOnLinux(ChromeOptions chromeOptions) {
         String osName = System.getProperty("os.name");//get operating system type
         if (osName.toLowerCase().contains("linux")) {
-            System.out.println("Using headless chrome driver");
+            System.out.println("Using headless linux chrome driver");
             System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
             chromeOptions.addArguments(Arrays.asList("--headless", "--disable-gpu"));
             chromeOptions.addArguments("window-size=1200,1100");

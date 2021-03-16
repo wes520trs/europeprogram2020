@@ -24,7 +24,7 @@ public class JUnitTestRunner extends TestBase {
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         JenkinsBrowserMode browserMode = new JenkinsBrowserMode();
-        boolean useHeadless = browserMode.setHeadlessModeIfLinux(chromeOptions);
+        boolean useHeadless = browserMode.setHeadlessModeOnLinux(chromeOptions);
         if (ApplicationConfig.readConfigProperties("config.properties",
                 "headless").equals("1")) {
             browserMode.setHeadlessModeOnWindows(chromeOptions);
