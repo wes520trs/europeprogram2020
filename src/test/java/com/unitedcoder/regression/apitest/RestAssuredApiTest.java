@@ -1,7 +1,9 @@
 package com.unitedcoder.regression.apitest;
 
 import io.restassured.RestAssured;
+import io.restassured.http.Method;
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 import org.hamcrest.Matchers;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -20,12 +22,13 @@ public class RestAssuredApiTest {
 
     @Test(description = "Weather forecast Api test")
     public void getCurrentWeatherByCityName() {
-        Response response = RestAssured.given().param("q","London").param("appid",apiKey).
+        Response response = RestAssured.given().param("q","Istanbul").param("appid",apiKey).
                 when().get(baseURL);
         System.out.println(response.getBody().prettyPeek());
         int statusCode=response.getStatusCode();
         Assert.assertEquals(statusCode,200);
-        Assert.assertTrue(response.getBody().jsonPath().getString("name").equals("London"));
+        Assert.assertTrue(response.getBody().jsonPath().getString("name").equals("Istanbul"));
+        Assert.assertTrue(response.getBody().jsonPath().get("id").equals(745042));
     }
 
     @Test
@@ -59,12 +62,32 @@ public class RestAssuredApiTest {
     @Test
     public void deleteUser(){
         RestAssured.baseURI="https://reqres.in/";
-        given().header("Content-Type","application/json").body("{\n" +
-                "    \"name\": \"Sean\",\n" +
-                "    \"job\": \"Manager\"\n" +
-                "}").when().put("/api/users/2").then().log().all().
+        given().header("Content-Type","application/json").when().delete("/api/users/2").then().log().all().
                 assertThat().statusCode(204);
 
+    }
+
+    @Test
+    void getWeatherDetails() {
+        // Specify the base URI
+        RestAssured.baseURI = "https://reqres.in/";
+        // Create request object
+        RequestSpecification httpRequest = RestAssured.given();
+        // Create response object
+        Response response = httpRequest.request(Method.GET, "/api/users?page=2");
+        // Print response in console window
+        String responseBody = response.getBody().asString();
+        System.out.println("Response body is: " + responseBody);
+        // Status code validation
+        int statusCode = response.getStatusCode();
+        System.out.println("status code is: " + statusCode);
+        Assert.assertEquals(statusCode, 200);
+        // Status line verification
+        String statusLine = response.getStatusLine();
+        System.out.println("status line is: " + statusLine);
+        Assert.assertEquals(statusLine, "HTTP/1.1 200 OK");
+        String header = response.getHeader("page");
+        System.out.println("header is: "+header);
     }
 
 }

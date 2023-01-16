@@ -18,22 +18,29 @@ public class ApiPostRequest {
 
     @Test
     public void postRequest() throws IOException {
+
         String url = "https://reqres.in/api/users";
+
         HashMap<String, String> requestHeader = new HashMap<>();
         requestHeader.put("Content-Type", "application/json");
-        Users users = new Users("David", "SDET"); // java object
+
+        Users users = new Users("David", "SDET");
         ObjectMapper mapper = new ObjectMapper();
         mapper.writeValue(new File("testdata//employee.jason"), users);
         //convert java object in json string
         String userJsonString = mapper.writeValueAsString(users);
         System.out.println(userJsonString);
+
         apiClient = new RestApiClient();
         httpResponse = apiClient.postRequest(url, userJsonString, requestHeader);
+
         int statusCode = httpResponse.getStatusLine().getStatusCode();
         Assert.assertEquals(statusCode, 201);
+
         String responseString = EntityUtils.toString(httpResponse.getEntity());
         JSONObject responseJson = new JSONObject(responseString);
         System.out.println("The response from Api: " + responseJson);
+
         Users userResponseObject = mapper.readValue(responseString, Users.class);
         System.out.println(userResponseObject.getId() + ": " + userResponseObject.getCreatedAt());
         Assert.assertTrue(users.getName().equals(userResponseObject.getName()));
